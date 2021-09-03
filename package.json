@@ -1,0 +1,22 @@
+{
+  "name": "ctci-javascript",
+  "version": "1.0.0",
+  "description": "cracking-the-coding-interview-problems ",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lail-lei/ctci-javascript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lail-lei/ctci-javascript/issues"
+  },
+  "homepage": "https://github.com/lail-lei/ctci-javascript#readme",
+  "devDependencies": {
+    "jest": "^27.1.0"
+  }
+}
