@@ -2,12 +2,16 @@
 function Node (data) {
     this.data = data;
     this.next = null;
+    this.toString = () => {
+        return "data: "+ this.data + ", next: " + this.next.data;
+    }
 }
 
 
 function LinkedList () {
     this.head = null;
     this.tail = null;
+    this.size = 0;
 
     this.addNode = (data) => {
         if(!this.head) {
@@ -18,15 +22,23 @@ function LinkedList () {
             this.tail.next = new Node(data);
             this.tail = this.tail.next;
         }
+
+        this.size++;
     }
+
 
     this.toString = () =>{
         let str = "";
         let ptr = this.head;
-       
-        while (ptr) {
-            str+= ptr.data+ " => ";
-            ptr = ptr.next;
+    
+        for(let i = 0; i < this.size; i++){ // avoid infinite loop if cycle (vs while(ptr))
+            
+            if(ptr) // TODO- add delete method to Node class to change size on delete
+            {
+                str+= ptr.data+ " => ";
+                ptr = ptr.next;
+            }
+           
         }
     
         str+= "EOL";

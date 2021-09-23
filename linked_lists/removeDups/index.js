@@ -1,5 +1,10 @@
-
-
+/**
+ * Remove Dups: 
+ * Write code to remove duplicates from an unsorted linked list.
+ * FOLLOW UP: How would you solve this problem if a temporary buffer 
+ * is not allowed? 
+ */
+// O(n), with O(n2)
 function remove (list) {
 
     if (!list.head) return list;
@@ -22,26 +27,27 @@ function remove (list) {
     return list;
 }
 
-
+// O(n2)
 function removeInPlace (list) {
 
 
     let ptr = list.head;
-
+    // for each node, 
     while(ptr)
     {
-        let prev = ptr;
-        let runner = ptr.next;
+        let prev = ptr; // for keeping track of previous position for deletion
+        let runner = ptr.next; // for analyzing the node- only need to check nodes after current one 
+        // (the arrived node at ptr must be unqiue, since it has not yet been deleted)
 
-
+        // compare with all other nodes
         while(runner){
-            if(runner.data === ptr.data) prev.next = runner.next;
-            else prev = runner;
-            runner = runner.next;
+            if(runner.data === ptr.data) prev.next = runner.next; // delete runnner node
+            else prev = runner; // if nothing to delete, set runner as previous (include in final list)
+            runner = runner.next; // always increment runner
         }
 
 
-        ptr = ptr.next;     
+        ptr = ptr.next;  // always increment pointer
     }
 
     return list;
